@@ -22,10 +22,34 @@ def twoStacks(maxSum, a, b):
             max_count = max(max_count, i + j)
 
     return max_count
-g = int(input().strip()) 
-for _ in range(g):
-    n, m, maxSum = map(int, input().strip().split())  
-    a = list(map(int, input().strip().split()))  
-    b = list(map(int, input().strip().split()))  
-    result = twoStacks(maxSum, a, b)
-    print(result)
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    g = int(input().strip())
+
+    for g_itr in range(g):
+        first_multiple_input = input().rstrip().split()
+
+        n = int(first_multiple_input[0])
+
+        m = int(first_multiple_input[1])
+
+        maxSum = int(first_multiple_input[2])
+
+        a = list(map(int, input().rstrip().split()))
+
+        b = list(map(int, input().rstrip().split()))
+
+        result = twoStacks(maxSum, a, b)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+#Test case as given in Hackerrank
+1
+5 4 10
+4 2 4 6 1
+2 1 8 5
+#Output
+4
