@@ -1,4 +1,4 @@
-#!/bin/python3
+
 
 import math
 import os
@@ -6,31 +6,19 @@ import random
 import re
 import sys
 
-#
-# Complete the 'isBalanced' function below.
-#
-# The function is expected to return a STRING.
-# The function accepts STRING s as parameter.
-#
-
 def isBalanced(s):
-    
-    bracket_map = {')': '(', '}': '{', ']': '['}
-    
+    map = {')': '(', '}': '{', ']': '['}
     stack = []
-
-    for char in s:
-        if char in bracket_map.values():  # Opening bracket
+    for c in s:
+        if c in map.values(): 
             stack.append(char)
-        elif char in bracket_map:  # Closing bracket
-            if stack and stack[-1] == bracket_map[char]:
+        elif c in map:  
+            if stack and stack[-1] == map[c]:
                 stack.pop() 
             else:
                 return "NO"  
         else:
             return "NO"  
-
-   
     return "YES" if not stack else "NO"
     
         
